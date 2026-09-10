@@ -9,7 +9,7 @@
 ### Composer
 
 ```bash
-composer require antchain/securitytech
+composer require antchain/SECURITYTECH
 ```
 
 ## 问题

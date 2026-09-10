@@ -1,13 +1,122 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateBlueshieldSecuritypictureRequest extends Model
-{
+class CreateBlueshieldSecuritypictureRequest extends Model {
+    protected $_name = [
+        'authToken' => 'auth_token',
+        'productInstanceId' => 'product_instance_id',
+        'appName' => 'app_name',
+        'clientName' => 'client_name',
+        'osType' => 'os_type',
+        'packageName' => 'package_name',
+        'certSign' => 'cert_sign',
+        'appKeyData' => 'app_key_data',
+        'securityData' => 'security_data',
+        'extraData' => 'extra_data',
+        'whiteBoxData' => 'white_box_data',
+        'raasProducts' => 'raas_products',
+        'raasSecondTenant' => 'raas_second_tenant',
+    ];
+    public function validate() {
+        Model::validateRequired('clientName', $this->clientName, true);
+        Model::validateRequired('osType', $this->osType, true);
+        Model::validateRequired('packageName', $this->packageName, true);
+        Model::validateRequired('raasProducts', $this->raasProducts, true);
+    }
+    public function toMap() {
+        $res = [];
+        if (null !== $this->authToken) {
+            $res['auth_token'] = $this->authToken;
+        }
+        if (null !== $this->productInstanceId) {
+            $res['product_instance_id'] = $this->productInstanceId;
+        }
+        if (null !== $this->appName) {
+            $res['app_name'] = $this->appName;
+        }
+        if (null !== $this->clientName) {
+            $res['client_name'] = $this->clientName;
+        }
+        if (null !== $this->osType) {
+            $res['os_type'] = $this->osType;
+        }
+        if (null !== $this->packageName) {
+            $res['package_name'] = $this->packageName;
+        }
+        if (null !== $this->certSign) {
+            $res['cert_sign'] = $this->certSign;
+        }
+        if (null !== $this->appKeyData) {
+            $res['app_key_data'] = $this->appKeyData;
+        }
+        if (null !== $this->securityData) {
+            $res['security_data'] = $this->securityData;
+        }
+        if (null !== $this->extraData) {
+            $res['extra_data'] = $this->extraData;
+        }
+        if (null !== $this->whiteBoxData) {
+            $res['white_box_data'] = $this->whiteBoxData;
+        }
+        if (null !== $this->raasProducts) {
+            $res['raas_products'] = $this->raasProducts;
+        }
+        if (null !== $this->raasSecondTenant) {
+            $res['raas_second_tenant'] = $this->raasSecondTenant;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return CreateBlueshieldSecuritypictureRequest
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['auth_token'])){
+            $model->authToken = $map['auth_token'];
+        }
+        if(isset($map['product_instance_id'])){
+            $model->productInstanceId = $map['product_instance_id'];
+        }
+        if(isset($map['app_name'])){
+            $model->appName = $map['app_name'];
+        }
+        if(isset($map['client_name'])){
+            $model->clientName = $map['client_name'];
+        }
+        if(isset($map['os_type'])){
+            $model->osType = $map['os_type'];
+        }
+        if(isset($map['package_name'])){
+            $model->packageName = $map['package_name'];
+        }
+        if(isset($map['cert_sign'])){
+            $model->certSign = $map['cert_sign'];
+        }
+        if(isset($map['app_key_data'])){
+            $model->appKeyData = $map['app_key_data'];
+        }
+        if(isset($map['security_data'])){
+            $model->securityData = $map['security_data'];
+        }
+        if(isset($map['extra_data'])){
+            $model->extraData = $map['extra_data'];
+        }
+        if(isset($map['white_box_data'])){
+            $model->whiteBoxData = $map['white_box_data'];
+        }
+        if(isset($map['raas_products'])){
+            $model->raasProducts = $map['raas_products'];
+        }
+        if(isset($map['raas_second_tenant'])){
+            $model->raasSecondTenant = $map['raas_second_tenant'];
+        }
+        return $model;
+    }
     // OAuth模式下的授权token
     /**
      * @var string
@@ -84,124 +193,5 @@ class CreateBlueshieldSecuritypictureRequest extends Model
      * @var string
      */
     public $raasSecondTenant;
-    protected $_name = [
-        'authToken'         => 'auth_token',
-        'productInstanceId' => 'product_instance_id',
-        'appName'           => 'app_name',
-        'clientName'        => 'client_name',
-        'osType'            => 'os_type',
-        'packageName'       => 'package_name',
-        'certSign'          => 'cert_sign',
-        'appKeyData'        => 'app_key_data',
-        'securityData'      => 'security_data',
-        'extraData'         => 'extra_data',
-        'whiteBoxData'      => 'white_box_data',
-        'raasProducts'      => 'raas_products',
-        'raasSecondTenant'  => 'raas_second_tenant',
-    ];
 
-    public function validate()
-    {
-        Model::validateRequired('clientName', $this->clientName, true);
-        Model::validateRequired('osType', $this->osType, true);
-        Model::validateRequired('packageName', $this->packageName, true);
-        Model::validateRequired('raasProducts', $this->raasProducts, true);
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->authToken) {
-            $res['auth_token'] = $this->authToken;
-        }
-        if (null !== $this->productInstanceId) {
-            $res['product_instance_id'] = $this->productInstanceId;
-        }
-        if (null !== $this->appName) {
-            $res['app_name'] = $this->appName;
-        }
-        if (null !== $this->clientName) {
-            $res['client_name'] = $this->clientName;
-        }
-        if (null !== $this->osType) {
-            $res['os_type'] = $this->osType;
-        }
-        if (null !== $this->packageName) {
-            $res['package_name'] = $this->packageName;
-        }
-        if (null !== $this->certSign) {
-            $res['cert_sign'] = $this->certSign;
-        }
-        if (null !== $this->appKeyData) {
-            $res['app_key_data'] = $this->appKeyData;
-        }
-        if (null !== $this->securityData) {
-            $res['security_data'] = $this->securityData;
-        }
-        if (null !== $this->extraData) {
-            $res['extra_data'] = $this->extraData;
-        }
-        if (null !== $this->whiteBoxData) {
-            $res['white_box_data'] = $this->whiteBoxData;
-        }
-        if (null !== $this->raasProducts) {
-            $res['raas_products'] = $this->raasProducts;
-        }
-        if (null !== $this->raasSecondTenant) {
-            $res['raas_second_tenant'] = $this->raasSecondTenant;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return CreateBlueshieldSecuritypictureRequest
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['auth_token'])) {
-            $model->authToken = $map['auth_token'];
-        }
-        if (isset($map['product_instance_id'])) {
-            $model->productInstanceId = $map['product_instance_id'];
-        }
-        if (isset($map['app_name'])) {
-            $model->appName = $map['app_name'];
-        }
-        if (isset($map['client_name'])) {
-            $model->clientName = $map['client_name'];
-        }
-        if (isset($map['os_type'])) {
-            $model->osType = $map['os_type'];
-        }
-        if (isset($map['package_name'])) {
-            $model->packageName = $map['package_name'];
-        }
-        if (isset($map['cert_sign'])) {
-            $model->certSign = $map['cert_sign'];
-        }
-        if (isset($map['app_key_data'])) {
-            $model->appKeyData = $map['app_key_data'];
-        }
-        if (isset($map['security_data'])) {
-            $model->securityData = $map['security_data'];
-        }
-        if (isset($map['extra_data'])) {
-            $model->extraData = $map['extra_data'];
-        }
-        if (isset($map['white_box_data'])) {
-            $model->whiteBoxData = $map['white_box_data'];
-        }
-        if (isset($map['raas_products'])) {
-            $model->raasProducts = $map['raas_products'];
-        }
-        if (isset($map['raas_second_tenant'])) {
-            $model->raasSecondTenant = $map['raas_second_tenant'];
-        }
-
-        return $model;
-    }
 }

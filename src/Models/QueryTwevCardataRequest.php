@@ -1,13 +1,81 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryTwevCardataRequest extends Model
-{
+class QueryTwevCardataRequest extends Model {
+    protected $_name = [
+        'authToken' => 'auth_token',
+        'productInstanceId' => 'product_instance_id',
+        'token' => 'token',
+        'tuid' => 'tuid',
+        'timeDimension' => 'time_dimension',
+        'timeValue' => 'time_value',
+        'pastDays' => 'past_days',
+    ];
+    public function validate() {
+        Model::validateRequired('token', $this->token, true);
+        Model::validateRequired('tuid', $this->tuid, true);
+        Model::validateRequired('timeDimension', $this->timeDimension, true);
+        Model::validateRequired('timeValue', $this->timeValue, true);
+        Model::validateRequired('pastDays', $this->pastDays, true);
+    }
+    public function toMap() {
+        $res = [];
+        if (null !== $this->authToken) {
+            $res['auth_token'] = $this->authToken;
+        }
+        if (null !== $this->productInstanceId) {
+            $res['product_instance_id'] = $this->productInstanceId;
+        }
+        if (null !== $this->token) {
+            $res['token'] = $this->token;
+        }
+        if (null !== $this->tuid) {
+            $res['tuid'] = $this->tuid;
+        }
+        if (null !== $this->timeDimension) {
+            $res['time_dimension'] = $this->timeDimension;
+        }
+        if (null !== $this->timeValue) {
+            $res['time_value'] = $this->timeValue;
+        }
+        if (null !== $this->pastDays) {
+            $res['past_days'] = $this->pastDays;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return QueryTwevCardataRequest
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['auth_token'])){
+            $model->authToken = $map['auth_token'];
+        }
+        if(isset($map['product_instance_id'])){
+            $model->productInstanceId = $map['product_instance_id'];
+        }
+        if(isset($map['token'])){
+            $model->token = $map['token'];
+        }
+        if(isset($map['tuid'])){
+            $model->tuid = $map['tuid'];
+        }
+        if(isset($map['time_dimension'])){
+            $model->timeDimension = $map['time_dimension'];
+        }
+        if(isset($map['time_value'])){
+            $model->timeValue = $map['time_value'];
+        }
+        if(isset($map['past_days'])){
+            $model->pastDays = $map['past_days'];
+        }
+        return $model;
+    }
     // OAuth模式下的授权token
     /**
      * @var string
@@ -48,83 +116,5 @@ class QueryTwevCardataRequest extends Model
      * @var int
      */
     public $pastDays;
-    protected $_name = [
-        'authToken'         => 'auth_token',
-        'productInstanceId' => 'product_instance_id',
-        'token'             => 'token',
-        'tuid'              => 'tuid',
-        'timeDimension'     => 'time_dimension',
-        'timeValue'         => 'time_value',
-        'pastDays'          => 'past_days',
-    ];
 
-    public function validate()
-    {
-        Model::validateRequired('token', $this->token, true);
-        Model::validateRequired('tuid', $this->tuid, true);
-        Model::validateRequired('timeDimension', $this->timeDimension, true);
-        Model::validateRequired('timeValue', $this->timeValue, true);
-        Model::validateRequired('pastDays', $this->pastDays, true);
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->authToken) {
-            $res['auth_token'] = $this->authToken;
-        }
-        if (null !== $this->productInstanceId) {
-            $res['product_instance_id'] = $this->productInstanceId;
-        }
-        if (null !== $this->token) {
-            $res['token'] = $this->token;
-        }
-        if (null !== $this->tuid) {
-            $res['tuid'] = $this->tuid;
-        }
-        if (null !== $this->timeDimension) {
-            $res['time_dimension'] = $this->timeDimension;
-        }
-        if (null !== $this->timeValue) {
-            $res['time_value'] = $this->timeValue;
-        }
-        if (null !== $this->pastDays) {
-            $res['past_days'] = $this->pastDays;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return QueryTwevCardataRequest
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['auth_token'])) {
-            $model->authToken = $map['auth_token'];
-        }
-        if (isset($map['product_instance_id'])) {
-            $model->productInstanceId = $map['product_instance_id'];
-        }
-        if (isset($map['token'])) {
-            $model->token = $map['token'];
-        }
-        if (isset($map['tuid'])) {
-            $model->tuid = $map['tuid'];
-        }
-        if (isset($map['time_dimension'])) {
-            $model->timeDimension = $map['time_dimension'];
-        }
-        if (isset($map['time_value'])) {
-            $model->timeValue = $map['time_value'];
-        }
-        if (isset($map['past_days'])) {
-            $model->pastDays = $map['past_days'];
-        }
-
-        return $model;
-    }
 }

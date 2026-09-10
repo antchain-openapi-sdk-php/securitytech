@@ -1,13 +1,118 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QuerySimLoginResponse extends Model
-{
+use AntChain\SECURITYTECH\Models\SimStoreInfo;
+use AntChain\SECURITYTECH\Models\SimSalesInfo;
+
+class QuerySimLoginResponse extends Model {
+    protected $_name = [
+        'reqMsgId' => 'req_msg_id',
+        'resultCode' => 'result_code',
+        'resultMsg' => 'result_msg',
+        'loginResult' => 'login_result',
+        'loginMsg' => 'login_msg',
+        'activated' => 'activated',
+        'activateTime' => 'activate_time',
+        'loginTime' => 'login_time',
+        'storeInfo' => 'store_info',
+        'storeInfoList' => 'store_info_list',
+        'salesInfo' => 'sales_info',
+    ];
+    public function validate() {}
+    public function toMap() {
+        $res = [];
+        if (null !== $this->reqMsgId) {
+            $res['req_msg_id'] = $this->reqMsgId;
+        }
+        if (null !== $this->resultCode) {
+            $res['result_code'] = $this->resultCode;
+        }
+        if (null !== $this->resultMsg) {
+            $res['result_msg'] = $this->resultMsg;
+        }
+        if (null !== $this->loginResult) {
+            $res['login_result'] = $this->loginResult;
+        }
+        if (null !== $this->loginMsg) {
+            $res['login_msg'] = $this->loginMsg;
+        }
+        if (null !== $this->activated) {
+            $res['activated'] = $this->activated;
+        }
+        if (null !== $this->activateTime) {
+            $res['activate_time'] = $this->activateTime;
+        }
+        if (null !== $this->loginTime) {
+            $res['login_time'] = $this->loginTime;
+        }
+        if (null !== $this->storeInfo) {
+            $res['store_info'] = null !== $this->storeInfo ? $this->storeInfo->toMap() : null;
+        }
+        if (null !== $this->storeInfoList) {
+            $res['store_info_list'] = [];
+            if(null !== $this->storeInfoList && is_array($this->storeInfoList)){
+                $n = 0;
+                foreach($this->storeInfoList as $item){
+                    $res['store_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->salesInfo) {
+            $res['sales_info'] = null !== $this->salesInfo ? $this->salesInfo->toMap() : null;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return QuerySimLoginResponse
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['req_msg_id'])){
+            $model->reqMsgId = $map['req_msg_id'];
+        }
+        if(isset($map['result_code'])){
+            $model->resultCode = $map['result_code'];
+        }
+        if(isset($map['result_msg'])){
+            $model->resultMsg = $map['result_msg'];
+        }
+        if(isset($map['login_result'])){
+            $model->loginResult = $map['login_result'];
+        }
+        if(isset($map['login_msg'])){
+            $model->loginMsg = $map['login_msg'];
+        }
+        if(isset($map['activated'])){
+            $model->activated = $map['activated'];
+        }
+        if(isset($map['activate_time'])){
+            $model->activateTime = $map['activate_time'];
+        }
+        if(isset($map['login_time'])){
+            $model->loginTime = $map['login_time'];
+        }
+        if(isset($map['store_info'])){
+            $model->storeInfo = SimStoreInfo::fromMap($map['store_info']);
+        }
+        if(isset($map['store_info_list'])){
+            if(!empty($map['store_info_list'])){
+                $model->storeInfoList = [];
+                $n = 0;
+                foreach($map['store_info_list'] as $item) {
+                    $model->storeInfoList[$n++] = null !== $item ? SimStoreInfo::fromMap($item) : $item;
+                }
+            }
+        }
+        if(isset($map['sales_info'])){
+            $model->salesInfo = SimSalesInfo::fromMap($map['sales_info']);
+        }
+        return $model;
+    }
     // 请求唯一ID，用于链路跟踪和问题排查
     /**
      * @var string
@@ -79,118 +184,5 @@ class QuerySimLoginResponse extends Model
      * @var SimSalesInfo
      */
     public $salesInfo;
-    protected $_name = [
-        'reqMsgId'      => 'req_msg_id',
-        'resultCode'    => 'result_code',
-        'resultMsg'     => 'result_msg',
-        'loginResult'   => 'login_result',
-        'loginMsg'      => 'login_msg',
-        'activated'     => 'activated',
-        'activateTime'  => 'activate_time',
-        'loginTime'     => 'login_time',
-        'storeInfo'     => 'store_info',
-        'storeInfoList' => 'store_info_list',
-        'salesInfo'     => 'sales_info',
-    ];
 
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->reqMsgId) {
-            $res['req_msg_id'] = $this->reqMsgId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
-        }
-        if (null !== $this->loginResult) {
-            $res['login_result'] = $this->loginResult;
-        }
-        if (null !== $this->loginMsg) {
-            $res['login_msg'] = $this->loginMsg;
-        }
-        if (null !== $this->activated) {
-            $res['activated'] = $this->activated;
-        }
-        if (null !== $this->activateTime) {
-            $res['activate_time'] = $this->activateTime;
-        }
-        if (null !== $this->loginTime) {
-            $res['login_time'] = $this->loginTime;
-        }
-        if (null !== $this->storeInfo) {
-            $res['store_info'] = null !== $this->storeInfo ? $this->storeInfo->toMap() : null;
-        }
-        if (null !== $this->storeInfoList) {
-            $res['store_info_list'] = [];
-            if (null !== $this->storeInfoList && \is_array($this->storeInfoList)) {
-                $n = 0;
-                foreach ($this->storeInfoList as $item) {
-                    $res['store_info_list'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
-        }
-        if (null !== $this->salesInfo) {
-            $res['sales_info'] = null !== $this->salesInfo ? $this->salesInfo->toMap() : null;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return QuerySimLoginResponse
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['req_msg_id'])) {
-            $model->reqMsgId = $map['req_msg_id'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
-        }
-        if (isset($map['login_result'])) {
-            $model->loginResult = $map['login_result'];
-        }
-        if (isset($map['login_msg'])) {
-            $model->loginMsg = $map['login_msg'];
-        }
-        if (isset($map['activated'])) {
-            $model->activated = $map['activated'];
-        }
-        if (isset($map['activate_time'])) {
-            $model->activateTime = $map['activate_time'];
-        }
-        if (isset($map['login_time'])) {
-            $model->loginTime = $map['login_time'];
-        }
-        if (isset($map['store_info'])) {
-            $model->storeInfo = SimStoreInfo::fromMap($map['store_info']);
-        }
-        if (isset($map['store_info_list'])) {
-            if (!empty($map['store_info_list'])) {
-                $model->storeInfoList = [];
-                $n                    = 0;
-                foreach ($map['store_info_list'] as $item) {
-                    $model->storeInfoList[$n++] = null !== $item ? SimStoreInfo::fromMap($item) : $item;
-                }
-            }
-        }
-        if (isset($map['sales_info'])) {
-            $model->salesInfo = SimSalesInfo::fromMap($map['sales_info']);
-        }
-
-        return $model;
-    }
 }

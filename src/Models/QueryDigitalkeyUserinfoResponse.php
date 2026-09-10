@@ -1,13 +1,91 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryDigitalkeyUserinfoResponse extends Model
-{
+class QueryDigitalkeyUserinfoResponse extends Model {
+    protected $_name = [
+        'reqMsgId' => 'req_msg_id',
+        'resultCode' => 'result_code',
+        'resultMsg' => 'result_msg',
+        'uid' => 'uid',
+        'introduction' => 'introduction',
+        'nickName' => 'nick_name',
+        'avatarUrl' => 'avatar_url',
+        'brandId' => 'brand_id',
+        'tuids' => 'tuids',
+    ];
+    public function validate() {}
+    public function toMap() {
+        $res = [];
+        if (null !== $this->reqMsgId) {
+            $res['req_msg_id'] = $this->reqMsgId;
+        }
+        if (null !== $this->resultCode) {
+            $res['result_code'] = $this->resultCode;
+        }
+        if (null !== $this->resultMsg) {
+            $res['result_msg'] = $this->resultMsg;
+        }
+        if (null !== $this->uid) {
+            $res['uid'] = $this->uid;
+        }
+        if (null !== $this->introduction) {
+            $res['introduction'] = $this->introduction;
+        }
+        if (null !== $this->nickName) {
+            $res['nick_name'] = $this->nickName;
+        }
+        if (null !== $this->avatarUrl) {
+            $res['avatar_url'] = $this->avatarUrl;
+        }
+        if (null !== $this->brandId) {
+            $res['brand_id'] = $this->brandId;
+        }
+        if (null !== $this->tuids) {
+            $res['tuids'] = $this->tuids;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return QueryDigitalkeyUserinfoResponse
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['req_msg_id'])){
+            $model->reqMsgId = $map['req_msg_id'];
+        }
+        if(isset($map['result_code'])){
+            $model->resultCode = $map['result_code'];
+        }
+        if(isset($map['result_msg'])){
+            $model->resultMsg = $map['result_msg'];
+        }
+        if(isset($map['uid'])){
+            $model->uid = $map['uid'];
+        }
+        if(isset($map['introduction'])){
+            $model->introduction = $map['introduction'];
+        }
+        if(isset($map['nick_name'])){
+            $model->nickName = $map['nick_name'];
+        }
+        if(isset($map['avatar_url'])){
+            $model->avatarUrl = $map['avatar_url'];
+        }
+        if(isset($map['brand_id'])){
+            $model->brandId = $map['brand_id'];
+        }
+        if(isset($map['tuids'])){
+            if(!empty($map['tuids'])){
+                $model->tuids = $map['tuids'];
+            }
+        }
+        return $model;
+    }
     // 请求唯一ID，用于链路跟踪和问题排查
     /**
      * @var string
@@ -61,94 +139,5 @@ class QueryDigitalkeyUserinfoResponse extends Model
      * @var string[]
      */
     public $tuids;
-    protected $_name = [
-        'reqMsgId'     => 'req_msg_id',
-        'resultCode'   => 'result_code',
-        'resultMsg'    => 'result_msg',
-        'uid'          => 'uid',
-        'introduction' => 'introduction',
-        'nickName'     => 'nick_name',
-        'avatarUrl'    => 'avatar_url',
-        'brandId'      => 'brand_id',
-        'tuids'        => 'tuids',
-    ];
 
-    public function validate()
-    {
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->reqMsgId) {
-            $res['req_msg_id'] = $this->reqMsgId;
-        }
-        if (null !== $this->resultCode) {
-            $res['result_code'] = $this->resultCode;
-        }
-        if (null !== $this->resultMsg) {
-            $res['result_msg'] = $this->resultMsg;
-        }
-        if (null !== $this->uid) {
-            $res['uid'] = $this->uid;
-        }
-        if (null !== $this->introduction) {
-            $res['introduction'] = $this->introduction;
-        }
-        if (null !== $this->nickName) {
-            $res['nick_name'] = $this->nickName;
-        }
-        if (null !== $this->avatarUrl) {
-            $res['avatar_url'] = $this->avatarUrl;
-        }
-        if (null !== $this->brandId) {
-            $res['brand_id'] = $this->brandId;
-        }
-        if (null !== $this->tuids) {
-            $res['tuids'] = $this->tuids;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return QueryDigitalkeyUserinfoResponse
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['req_msg_id'])) {
-            $model->reqMsgId = $map['req_msg_id'];
-        }
-        if (isset($map['result_code'])) {
-            $model->resultCode = $map['result_code'];
-        }
-        if (isset($map['result_msg'])) {
-            $model->resultMsg = $map['result_msg'];
-        }
-        if (isset($map['uid'])) {
-            $model->uid = $map['uid'];
-        }
-        if (isset($map['introduction'])) {
-            $model->introduction = $map['introduction'];
-        }
-        if (isset($map['nick_name'])) {
-            $model->nickName = $map['nick_name'];
-        }
-        if (isset($map['avatar_url'])) {
-            $model->avatarUrl = $map['avatar_url'];
-        }
-        if (isset($map['brand_id'])) {
-            $model->brandId = $map['brand_id'];
-        }
-        if (isset($map['tuids'])) {
-            if (!empty($map['tuids'])) {
-                $model->tuids = $map['tuids'];
-            }
-        }
-
-        return $model;
-    }
 }

@@ -1,13 +1,133 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UploadEtcWaybillRequest extends Model
-{
+class UploadEtcWaybillRequest extends Model {
+    protected $_name = [
+        'authToken' => 'auth_token',
+        'productInstanceId' => 'product_instance_id',
+        'outerOrderNo' => 'outer_order_no',
+        'corpVehicleId' => 'corp_vehicle_id',
+        'plateNo' => 'plate_no',
+        'plateColor' => 'plate_color',
+        'waybillNo' => 'waybill_no',
+        'waybillStatus' => 'waybill_status',
+        'waybillStartTime' => 'waybill_start_time',
+        'waybillEndTime' => 'waybill_end_time',
+        'waybillStartAddress' => 'waybill_start_address',
+        'waybillEndAddress' => 'waybill_end_address',
+        'waybillFee' => 'waybill_fee',
+        'highwayFee' => 'highway_fee',
+    ];
+    public function validate() {
+        Model::validateRequired('outerOrderNo', $this->outerOrderNo, true);
+        Model::validateRequired('corpVehicleId', $this->corpVehicleId, true);
+        Model::validateRequired('plateNo', $this->plateNo, true);
+        Model::validateRequired('plateColor', $this->plateColor, true);
+        Model::validateRequired('waybillNo', $this->waybillNo, true);
+        Model::validateRequired('waybillStatus', $this->waybillStatus, true);
+        Model::validatePattern('waybillStartTime', $this->waybillStartTime, '\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})');
+        Model::validatePattern('waybillEndTime', $this->waybillEndTime, '\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})');
+    }
+    public function toMap() {
+        $res = [];
+        if (null !== $this->authToken) {
+            $res['auth_token'] = $this->authToken;
+        }
+        if (null !== $this->productInstanceId) {
+            $res['product_instance_id'] = $this->productInstanceId;
+        }
+        if (null !== $this->outerOrderNo) {
+            $res['outer_order_no'] = $this->outerOrderNo;
+        }
+        if (null !== $this->corpVehicleId) {
+            $res['corp_vehicle_id'] = $this->corpVehicleId;
+        }
+        if (null !== $this->plateNo) {
+            $res['plate_no'] = $this->plateNo;
+        }
+        if (null !== $this->plateColor) {
+            $res['plate_color'] = $this->plateColor;
+        }
+        if (null !== $this->waybillNo) {
+            $res['waybill_no'] = $this->waybillNo;
+        }
+        if (null !== $this->waybillStatus) {
+            $res['waybill_status'] = $this->waybillStatus;
+        }
+        if (null !== $this->waybillStartTime) {
+            $res['waybill_start_time'] = $this->waybillStartTime;
+        }
+        if (null !== $this->waybillEndTime) {
+            $res['waybill_end_time'] = $this->waybillEndTime;
+        }
+        if (null !== $this->waybillStartAddress) {
+            $res['waybill_start_address'] = $this->waybillStartAddress;
+        }
+        if (null !== $this->waybillEndAddress) {
+            $res['waybill_end_address'] = $this->waybillEndAddress;
+        }
+        if (null !== $this->waybillFee) {
+            $res['waybill_fee'] = $this->waybillFee;
+        }
+        if (null !== $this->highwayFee) {
+            $res['highway_fee'] = $this->highwayFee;
+        }
+        return $res;
+    }
+    /**
+     * @param array $map
+     * @return UploadEtcWaybillRequest
+     */
+    public static function fromMap($map = []) {
+        $model = new self();
+        if(isset($map['auth_token'])){
+            $model->authToken = $map['auth_token'];
+        }
+        if(isset($map['product_instance_id'])){
+            $model->productInstanceId = $map['product_instance_id'];
+        }
+        if(isset($map['outer_order_no'])){
+            $model->outerOrderNo = $map['outer_order_no'];
+        }
+        if(isset($map['corp_vehicle_id'])){
+            $model->corpVehicleId = $map['corp_vehicle_id'];
+        }
+        if(isset($map['plate_no'])){
+            $model->plateNo = $map['plate_no'];
+        }
+        if(isset($map['plate_color'])){
+            $model->plateColor = $map['plate_color'];
+        }
+        if(isset($map['waybill_no'])){
+            $model->waybillNo = $map['waybill_no'];
+        }
+        if(isset($map['waybill_status'])){
+            $model->waybillStatus = $map['waybill_status'];
+        }
+        if(isset($map['waybill_start_time'])){
+            $model->waybillStartTime = $map['waybill_start_time'];
+        }
+        if(isset($map['waybill_end_time'])){
+            $model->waybillEndTime = $map['waybill_end_time'];
+        }
+        if(isset($map['waybill_start_address'])){
+            $model->waybillStartAddress = $map['waybill_start_address'];
+        }
+        if(isset($map['waybill_end_address'])){
+            $model->waybillEndAddress = $map['waybill_end_address'];
+        }
+        if(isset($map['waybill_fee'])){
+            $model->waybillFee = $map['waybill_fee'];
+        }
+        if(isset($map['highway_fee'])){
+            $model->highwayFee = $map['highway_fee'];
+        }
+        return $model;
+    }
     // OAuth模式下的授权token
     /**
      * @var string
@@ -103,135 +223,5 @@ class UploadEtcWaybillRequest extends Model
      * @var string
      */
     public $highwayFee;
-    protected $_name = [
-        'authToken'           => 'auth_token',
-        'productInstanceId'   => 'product_instance_id',
-        'outerOrderNo'        => 'outer_order_no',
-        'corpVehicleId'       => 'corp_vehicle_id',
-        'plateNo'             => 'plate_no',
-        'plateColor'          => 'plate_color',
-        'waybillNo'           => 'waybill_no',
-        'waybillStatus'       => 'waybill_status',
-        'waybillStartTime'    => 'waybill_start_time',
-        'waybillEndTime'      => 'waybill_end_time',
-        'waybillStartAddress' => 'waybill_start_address',
-        'waybillEndAddress'   => 'waybill_end_address',
-        'waybillFee'          => 'waybill_fee',
-        'highwayFee'          => 'highway_fee',
-    ];
 
-    public function validate()
-    {
-        Model::validateRequired('outerOrderNo', $this->outerOrderNo, true);
-        Model::validateRequired('corpVehicleId', $this->corpVehicleId, true);
-        Model::validateRequired('plateNo', $this->plateNo, true);
-        Model::validateRequired('plateColor', $this->plateColor, true);
-        Model::validateRequired('waybillNo', $this->waybillNo, true);
-        Model::validateRequired('waybillStatus', $this->waybillStatus, true);
-        Model::validatePattern('waybillStartTime', $this->waybillStartTime, '\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})');
-        Model::validatePattern('waybillEndTime', $this->waybillEndTime, '\\d{4}[-]\\d{1,2}[-]\\d{1,2}[T]\\d{2}:\\d{2}:\\d{2}([Z]|([\\.]\\d{1,9})?[\\+]\\d{2}[\\:]?\\d{2})');
-    }
-
-    public function toMap()
-    {
-        $res = [];
-        if (null !== $this->authToken) {
-            $res['auth_token'] = $this->authToken;
-        }
-        if (null !== $this->productInstanceId) {
-            $res['product_instance_id'] = $this->productInstanceId;
-        }
-        if (null !== $this->outerOrderNo) {
-            $res['outer_order_no'] = $this->outerOrderNo;
-        }
-        if (null !== $this->corpVehicleId) {
-            $res['corp_vehicle_id'] = $this->corpVehicleId;
-        }
-        if (null !== $this->plateNo) {
-            $res['plate_no'] = $this->plateNo;
-        }
-        if (null !== $this->plateColor) {
-            $res['plate_color'] = $this->plateColor;
-        }
-        if (null !== $this->waybillNo) {
-            $res['waybill_no'] = $this->waybillNo;
-        }
-        if (null !== $this->waybillStatus) {
-            $res['waybill_status'] = $this->waybillStatus;
-        }
-        if (null !== $this->waybillStartTime) {
-            $res['waybill_start_time'] = $this->waybillStartTime;
-        }
-        if (null !== $this->waybillEndTime) {
-            $res['waybill_end_time'] = $this->waybillEndTime;
-        }
-        if (null !== $this->waybillStartAddress) {
-            $res['waybill_start_address'] = $this->waybillStartAddress;
-        }
-        if (null !== $this->waybillEndAddress) {
-            $res['waybill_end_address'] = $this->waybillEndAddress;
-        }
-        if (null !== $this->waybillFee) {
-            $res['waybill_fee'] = $this->waybillFee;
-        }
-        if (null !== $this->highwayFee) {
-            $res['highway_fee'] = $this->highwayFee;
-        }
-
-        return $res;
-    }
-
-    /**
-     * @param array $map
-     *
-     * @return UploadEtcWaybillRequest
-     */
-    public static function fromMap($map = [])
-    {
-        $model = new self();
-        if (isset($map['auth_token'])) {
-            $model->authToken = $map['auth_token'];
-        }
-        if (isset($map['product_instance_id'])) {
-            $model->productInstanceId = $map['product_instance_id'];
-        }
-        if (isset($map['outer_order_no'])) {
-            $model->outerOrderNo = $map['outer_order_no'];
-        }
-        if (isset($map['corp_vehicle_id'])) {
-            $model->corpVehicleId = $map['corp_vehicle_id'];
-        }
-        if (isset($map['plate_no'])) {
-            $model->plateNo = $map['plate_no'];
-        }
-        if (isset($map['plate_color'])) {
-            $model->plateColor = $map['plate_color'];
-        }
-        if (isset($map['waybill_no'])) {
-            $model->waybillNo = $map['waybill_no'];
-        }
-        if (isset($map['waybill_status'])) {
-            $model->waybillStatus = $map['waybill_status'];
-        }
-        if (isset($map['waybill_start_time'])) {
-            $model->waybillStartTime = $map['waybill_start_time'];
-        }
-        if (isset($map['waybill_end_time'])) {
-            $model->waybillEndTime = $map['waybill_end_time'];
-        }
-        if (isset($map['waybill_start_address'])) {
-            $model->waybillStartAddress = $map['waybill_start_address'];
-        }
-        if (isset($map['waybill_end_address'])) {
-            $model->waybillEndAddress = $map['waybill_end_address'];
-        }
-        if (isset($map['waybill_fee'])) {
-            $model->waybillFee = $map['waybill_fee'];
-        }
-        if (isset($map['highway_fee'])) {
-            $model->highwayFee = $map['highway_fee'];
-        }
-
-        return $model;
-    }
 }

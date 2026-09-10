@@ -1,71 +1,20 @@
 <?php
 
 // This file is auto-generated, don't edit it. Thanks.
-
 namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeviceRiskResp extends Model
-{
-    // apdid
-    /**
-     * @example .
-     *
-     * @var string
-     */
-    public $apdid;
-
-    // apdid_token
-    /**
-     * @example .
-     *
-     * @var string
-     */
-    public $apdidToken;
-
-    // risk_level
-    /**
-     * @example .
-     *
-     * @var int
-     */
-    public $riskLevel;
-
-    // risk_desc
-    /**
-     * @example .
-     *
-     * @var string
-     */
-    public $riskDesc;
-
-    // sug_action
-    /**
-     * @example .
-     *
-     * @var string
-     */
-    public $sugAction;
-
-    // risk_labels
-    /**
-     * @example .
-     *
-     * @var string[]
-     */
-    public $riskLabels;
+class DeviceRiskResp extends Model {
     protected $_name = [
-        'apdid'      => 'apdid',
+        'apdid' => 'apdid',
         'apdidToken' => 'apdid_token',
-        'riskLevel'  => 'risk_level',
-        'riskDesc'   => 'risk_desc',
-        'sugAction'  => 'sug_action',
+        'riskLevel' => 'risk_level',
+        'riskDesc' => 'risk_desc',
+        'sugAction' => 'sug_action',
         'riskLabels' => 'risk_labels',
     ];
-
-    public function validate()
-    {
+    public function validate() {
         Model::validateRequired('apdid', $this->apdid, true);
         Model::validateRequired('apdidToken', $this->apdidToken, true);
         Model::validateRequired('riskLevel', $this->riskLevel, true);
@@ -73,9 +22,7 @@ class DeviceRiskResp extends Model
         Model::validateRequired('sugAction', $this->sugAction, true);
         Model::validateRequired('riskLabels', $this->riskLabels, true);
     }
-
-    public function toMap()
-    {
+    public function toMap() {
         $res = [];
         if (null !== $this->apdid) {
             $res['apdid'] = $this->apdid;
@@ -95,39 +42,76 @@ class DeviceRiskResp extends Model
         if (null !== $this->riskLabels) {
             $res['risk_labels'] = $this->riskLabels;
         }
-
         return $res;
     }
-
     /**
      * @param array $map
-     *
      * @return DeviceRiskResp
      */
-    public static function fromMap($map = [])
-    {
+    public static function fromMap($map = []) {
         $model = new self();
-        if (isset($map['apdid'])) {
+        if(isset($map['apdid'])){
             $model->apdid = $map['apdid'];
         }
-        if (isset($map['apdid_token'])) {
+        if(isset($map['apdid_token'])){
             $model->apdidToken = $map['apdid_token'];
         }
-        if (isset($map['risk_level'])) {
+        if(isset($map['risk_level'])){
             $model->riskLevel = $map['risk_level'];
         }
-        if (isset($map['risk_desc'])) {
+        if(isset($map['risk_desc'])){
             $model->riskDesc = $map['risk_desc'];
         }
-        if (isset($map['sug_action'])) {
+        if(isset($map['sug_action'])){
             $model->sugAction = $map['sug_action'];
         }
-        if (isset($map['risk_labels'])) {
-            if (!empty($map['risk_labels'])) {
+        if(isset($map['risk_labels'])){
+            if(!empty($map['risk_labels'])){
                 $model->riskLabels = $map['risk_labels'];
             }
         }
-
         return $model;
     }
+    // apdid
+    /**
+     * @example .
+     * @var string
+     */
+    public $apdid;
+
+    // apdid_token
+    /**
+     * @example .
+     * @var string
+     */
+    public $apdidToken;
+
+    // risk_level
+    /**
+     * @example .
+     * @var int
+     */
+    public $riskLevel;
+
+    // risk_desc
+    /**
+     * @example .
+     * @var string
+     */
+    public $riskDesc;
+
+    // sug_action
+    /**
+     * @example .
+     * @var string
+     */
+    public $sugAction;
+
+    // risk_labels
+    /**
+     * @example .
+     * @var string[]
+     */
+    public $riskLabels;
+
 }
