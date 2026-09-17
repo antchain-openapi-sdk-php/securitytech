@@ -158,6 +158,20 @@ use AntChain\SECURITYTECH\Models\CallbackMerchantRiskResponse;
 use AntChain\SECURITYTECH\Models\ReceiveFileidCallbackRequest;
 use AntChain\SECURITYTECH\Models\ReceiveFileidCallbackResponse;
 use AntChain\SECURITYTECH\Models\CreateAntcloudGatewayxFileUploadRequest;
+use AntChain\SECURITYTECH\Models\CreatePoiMallorderRequest;
+use AntChain\SECURITYTECH\Models\CreatePoiMallorderResponse;
+use AntChain\SECURITYTECH\Models\UpdatePoiOrderRequest;
+use AntChain\SECURITYTECH\Models\UpdatePoiOrderResponse;
+use AntChain\SECURITYTECH\Models\ApplyPoiRefundRequest;
+use AntChain\SECURITYTECH\Models\ApplyPoiRefundResponse;
+use AntChain\SECURITYTECH\Models\QueryPoiRefundRequest;
+use AntChain\SECURITYTECH\Models\QueryPoiRefundResponse;
+use AntChain\SECURITYTECH\Models\NotifyPoiTransferRequest;
+use AntChain\SECURITYTECH\Models\NotifyPoiTransferResponse;
+use AntChain\SECURITYTECH\Models\NotifyPoiRefundRequest;
+use AntChain\SECURITYTECH\Models\NotifyPoiRefundResponse;
+use AntChain\SECURITYTECH\Models\QueryPoiFundRequest;
+use AntChain\SECURITYTECH\Models\QueryPoiFundResponse;
 use AntChain\SECURITYTECH\Models\CreateBssecpicRequest;
 use AntChain\SECURITYTECH\Models\CreateBssecpicResponse;
 use AntChain\SECURITYTECH\Models\CreateBlueshieldSecuritypictureRequest;
@@ -371,7 +385,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.7.23",
+                    "sdk_version" => "1.7.29",
                     "_prod_code" => "SECURITYTECH",
                     "_prod_channel" => "undefined"
                 ];
@@ -2236,6 +2250,181 @@ class Client {
         }
         Utils::validateModel($request);
         return ReceiveFileidCallbackResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.fileid.callback.receive", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 积分订单创建
+     * Summary: 积分订单创建
+     * @param CreatePoiMallorderRequest $request
+     * @return CreatePoiMallorderResponse
+     */
+    public function createPoiMallorder($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->createPoiMallorderEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 积分订单创建
+     * Summary: 积分订单创建
+     * @param CreatePoiMallorderRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return CreatePoiMallorderResponse
+     */
+    public function createPoiMallorderEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return CreatePoiMallorderResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.mallorder.create", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 订单状态更新
+     * Summary: 订单状态更新
+     * @param UpdatePoiOrderRequest $request
+     * @return UpdatePoiOrderResponse
+     */
+    public function updatePoiOrder($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->updatePoiOrderEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 订单状态更新
+     * Summary: 订单状态更新
+     * @param UpdatePoiOrderRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return UpdatePoiOrderResponse
+     */
+    public function updatePoiOrderEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return UpdatePoiOrderResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.order.update", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 订单退款申请
+     * Summary: 订单退款申请
+     * @param ApplyPoiRefundRequest $request
+     * @return ApplyPoiRefundResponse
+     */
+    public function applyPoiRefund($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->applyPoiRefundEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 订单退款申请
+     * Summary: 订单退款申请
+     * @param ApplyPoiRefundRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return ApplyPoiRefundResponse
+     */
+    public function applyPoiRefundEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return ApplyPoiRefundResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.refund.apply", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 退款结果查询
+     * Summary: 退款结果查询
+     * @param QueryPoiRefundRequest $request
+     * @return QueryPoiRefundResponse
+     */
+    public function queryPoiRefund($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->queryPoiRefundEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 退款结果查询
+     * Summary: 退款结果查询
+     * @param QueryPoiRefundRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return QueryPoiRefundResponse
+     */
+    public function queryPoiRefundEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return QueryPoiRefundResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.refund.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 分账结果通知
+     * Summary: 分账结果通知
+     * @param NotifyPoiTransferRequest $request
+     * @return NotifyPoiTransferResponse
+     */
+    public function notifyPoiTransfer($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->notifyPoiTransferEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 分账结果通知
+     * Summary: 分账结果通知
+     * @param NotifyPoiTransferRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return NotifyPoiTransferResponse
+     */
+    public function notifyPoiTransferEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return NotifyPoiTransferResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.transfer.notify", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 退款结果通知
+     * Summary: 退款结果通知
+     * @param NotifyPoiRefundRequest $request
+     * @return NotifyPoiRefundResponse
+     */
+    public function notifyPoiRefund($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->notifyPoiRefundEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 退款结果通知
+     * Summary: 退款结果通知
+     * @param NotifyPoiRefundRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return NotifyPoiRefundResponse
+     */
+    public function notifyPoiRefundEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return NotifyPoiRefundResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.refund.notify", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 余额查询
+     * Summary: 余额查询
+     * @param QueryPoiFundRequest $request
+     * @return QueryPoiFundResponse
+     */
+    public function queryPoiFund($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->queryPoiFundEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 余额查询
+     * Summary: 余额查询
+     * @param QueryPoiFundRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return QueryPoiFundResponse
+     */
+    public function queryPoiFundEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return QueryPoiFundResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.poi.fund.query", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
