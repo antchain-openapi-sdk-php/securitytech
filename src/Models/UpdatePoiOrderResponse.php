@@ -90,7 +90,7 @@ class UpdatePoiOrderResponse extends Model {
      */
     public $orderId;
 
-    // 更新结果：Y-更新成功 / N-更新失败
+    // 更新结果
     /**
      * @var string
      */

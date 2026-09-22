@@ -12,13 +12,13 @@ class UpdatePoiOrderRequest extends Model {
         'openId' => 'open_id',
         'merchantId' => 'merchant_id',
         'orderId' => 'order_id',
-        'status' => 'status',
+        'fulfillStatus' => 'fulfill_status',
         'statusGmt' => 'status_gmt',
     ];
     public function validate() {
         Model::validateRequired('openId', $this->openId, true);
         Model::validateRequired('orderId', $this->orderId, true);
-        Model::validateRequired('status', $this->status, true);
+        Model::validateRequired('fulfillStatus', $this->fulfillStatus, true);
     }
     public function toMap() {
         $res = [];
@@ -37,8 +37,8 @@ class UpdatePoiOrderRequest extends Model {
         if (null !== $this->orderId) {
             $res['order_id'] = $this->orderId;
         }
-        if (null !== $this->status) {
-            $res['status'] = $this->status;
+        if (null !== $this->fulfillStatus) {
+            $res['fulfill_status'] = $this->fulfillStatus;
         }
         if (null !== $this->statusGmt) {
             $res['status_gmt'] = $this->statusGmt;
@@ -66,8 +66,8 @@ class UpdatePoiOrderRequest extends Model {
         if(isset($map['order_id'])){
             $model->orderId = $map['order_id'];
         }
-        if(isset($map['status'])){
-            $model->status = $map['status'];
+        if(isset($map['fulfill_status'])){
+            $model->fulfillStatus = $map['fulfill_status'];
         }
         if(isset($map['status_gmt'])){
             $model->statusGmt = $map['status_gmt'];
@@ -103,11 +103,11 @@ class UpdatePoiOrderRequest extends Model {
      */
     public $orderId;
 
-    // 订单状态：SHIPPED-已发货 / RECEIVED-已确认收货 / CANCELED-已取消
+    // 履约状态：SHIPPED-已发货 / RECEIVED-已确认收货
     /**
      * @var string
      */
-    public $status;
+    public $fulfillStatus;
 
     // 状态发生业务时间，格式yyyy-MM-dd HH:mm:ss，建议传入便于对账
     /**

@@ -5,7 +5,7 @@ namespace AntChain\SECURITYTECH\Models;
 
 use AlibabaCloud\Tea\Model;
 
-use AntChain\SECURITYTECH\Models\FundItem;
+use AntChain\SECURITYTECH\Models\OrderFundItem;
 
 class QueryPoiFundResponse extends Model {
     protected $_name = [
@@ -57,7 +57,7 @@ class QueryPoiFundResponse extends Model {
                 $model->fundList = [];
                 $n = 0;
                 foreach($map['fund_list'] as $item) {
-                    $model->fundList[$n++] = null !== $item ? FundItem::fromMap($item) : $item;
+                    $model->fundList[$n++] = null !== $item ? OrderFundItem::fromMap($item) : $item;
                 }
             }
         }
@@ -81,9 +81,9 @@ class QueryPoiFundResponse extends Model {
      */
     public $resultMsg;
 
-    // 资金列表
+    // 订单列表
     /**
-     * @var FundItem[]
+     * @var OrderFundItem[]
      */
     public $fundList;
 

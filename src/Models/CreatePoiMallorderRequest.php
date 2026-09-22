@@ -15,7 +15,7 @@ class CreatePoiMallorderRequest extends Model {
         'sourceOrderId' => 'source_order_id',
         'productMode' => 'product_mode',
         'goodsName' => 'goods_name',
-        'settleAmount' => 'settle_amount',
+        'productAmount' => 'product_amount',
         'pointAmount' => 'point_amount',
     ];
     public function validate() {
@@ -25,7 +25,7 @@ class CreatePoiMallorderRequest extends Model {
         Model::validateRequired('sourceOrderId', $this->sourceOrderId, true);
         Model::validateRequired('productMode', $this->productMode, true);
         Model::validateRequired('goodsName', $this->goodsName, true);
-        Model::validateRequired('settleAmount', $this->settleAmount, true);
+        Model::validateRequired('productAmount', $this->productAmount, true);
         Model::validateRequired('pointAmount', $this->pointAmount, true);
     }
     public function toMap() {
@@ -54,8 +54,8 @@ class CreatePoiMallorderRequest extends Model {
         if (null !== $this->goodsName) {
             $res['goods_name'] = $this->goodsName;
         }
-        if (null !== $this->settleAmount) {
-            $res['settle_amount'] = $this->settleAmount;
+        if (null !== $this->productAmount) {
+            $res['product_amount'] = $this->productAmount;
         }
         if (null !== $this->pointAmount) {
             $res['point_amount'] = $this->pointAmount;
@@ -92,8 +92,8 @@ class CreatePoiMallorderRequest extends Model {
         if(isset($map['goods_name'])){
             $model->goodsName = $map['goods_name'];
         }
-        if(isset($map['settle_amount'])){
-            $model->settleAmount = $map['settle_amount'];
+        if(isset($map['product_amount'])){
+            $model->productAmount = $map['product_amount'];
         }
         if(isset($map['point_amount'])){
             $model->pointAmount = $map['point_amount'];
@@ -151,7 +151,7 @@ class CreatePoiMallorderRequest extends Model {
     /**
      * @var string
      */
-    public $settleAmount;
+    public $productAmount;
 
     // 冻结金额（元，两位小数，冻结/出账/分账基数）
     /**

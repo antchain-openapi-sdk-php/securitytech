@@ -7,46 +7,34 @@ use AlibabaCloud\Tea\Model;
 
 class FundItem extends Model {
     protected $_name = [
-        'orderId' => 'order_id',
-        'tradeNo' => 'trade_no',
-        'amount' => 'amount',
-        'petAmount' => 'pet_amount',
-        'mallAmount' => 'mall_amount',
-        'petAvailableAmount' => 'pet_available_amount',
-        'mallAvailableAmount' => 'mall_available_amount',
-        'mallFrozenAmount' => 'mall_frozen_amount',
+        'fundType' => 'fund_type',
+        'availableAmount' => 'available_amount',
+        'canRefundAmount' => 'can_refund_amount',
+        'frozenAmount' => 'frozen_amount',
+        'originalAmount' => 'original_amount',
     ];
     public function validate() {
-        Model::validateRequired('orderId', $this->orderId, true);
-        Model::validateRequired('tradeNo', $this->tradeNo, true);
-        Model::validateRequired('amount', $this->amount, true);
-        Model::validateRequired('petAmount', $this->petAmount, true);
+        Model::validateRequired('fundType', $this->fundType, true);
+        Model::validateRequired('availableAmount', $this->availableAmount, true);
+        Model::validateRequired('frozenAmount', $this->frozenAmount, true);
+        Model::validateRequired('originalAmount', $this->originalAmount, true);
     }
     public function toMap() {
         $res = [];
-        if (null !== $this->orderId) {
-            $res['order_id'] = $this->orderId;
+        if (null !== $this->fundType) {
+            $res['fund_type'] = $this->fundType;
         }
-        if (null !== $this->tradeNo) {
-            $res['trade_no'] = $this->tradeNo;
+        if (null !== $this->availableAmount) {
+            $res['available_amount'] = $this->availableAmount;
         }
-        if (null !== $this->amount) {
-            $res['amount'] = $this->amount;
+        if (null !== $this->canRefundAmount) {
+            $res['can_refund_amount'] = $this->canRefundAmount;
         }
-        if (null !== $this->petAmount) {
-            $res['pet_amount'] = $this->petAmount;
+        if (null !== $this->frozenAmount) {
+            $res['frozen_amount'] = $this->frozenAmount;
         }
-        if (null !== $this->mallAmount) {
-            $res['mall_amount'] = $this->mallAmount;
-        }
-        if (null !== $this->petAvailableAmount) {
-            $res['pet_available_amount'] = $this->petAvailableAmount;
-        }
-        if (null !== $this->mallAvailableAmount) {
-            $res['mall_available_amount'] = $this->mallAvailableAmount;
-        }
-        if (null !== $this->mallFrozenAmount) {
-            $res['mall_frozen_amount'] = $this->mallFrozenAmount;
+        if (null !== $this->originalAmount) {
+            $res['original_amount'] = $this->originalAmount;
         }
         return $res;
     }
@@ -56,86 +44,56 @@ class FundItem extends Model {
      */
     public static function fromMap($map = []) {
         $model = new self();
-        if(isset($map['order_id'])){
-            $model->orderId = $map['order_id'];
+        if(isset($map['fund_type'])){
+            $model->fundType = $map['fund_type'];
         }
-        if(isset($map['trade_no'])){
-            $model->tradeNo = $map['trade_no'];
+        if(isset($map['available_amount'])){
+            $model->availableAmount = $map['available_amount'];
         }
-        if(isset($map['amount'])){
-            $model->amount = $map['amount'];
+        if(isset($map['can_refund_amount'])){
+            $model->canRefundAmount = $map['can_refund_amount'];
         }
-        if(isset($map['pet_amount'])){
-            $model->petAmount = $map['pet_amount'];
+        if(isset($map['frozen_amount'])){
+            $model->frozenAmount = $map['frozen_amount'];
         }
-        if(isset($map['mall_amount'])){
-            $model->mallAmount = $map['mall_amount'];
-        }
-        if(isset($map['pet_available_amount'])){
-            $model->petAvailableAmount = $map['pet_available_amount'];
-        }
-        if(isset($map['mall_available_amount'])){
-            $model->mallAvailableAmount = $map['mall_available_amount'];
-        }
-        if(isset($map['mall_frozen_amount'])){
-            $model->mallFrozenAmount = $map['mall_frozen_amount'];
+        if(isset($map['original_amount'])){
+            $model->originalAmount = $map['original_amount'];
         }
         return $model;
     }
-    // 业务订单号（天枢biz_order_no转名；订单不存在时为空）
+    // fund_type
     /**
-     * @example METL202004041220123456
+     * @example PET
      * @var string
      */
-    public $orderId;
+    public $fundType;
 
-    // 关联交易单号（天枢原样透传）
+    // available_amount
     /**
-     * @example TN1001
+     * @example 300.00
      * @var string
      */
-    public $tradeNo;
+    public $availableAmount;
 
-    // 订单支付金额（订单实收；无单=0）单位元两位小数
+    // frozen_amount
     /**
-     * @example 1300.00
+     * @example 300.00
      * @var string
      */
-    public $amount;
+    public $canRefundAmount;
 
-    // 活体金额（明细PET行商品金额聚合，下单口径不可变事实；无明细=0）
+    // frozen_amount
     /**
-     * @example 800.00
+     * @example 300.00
      * @var string
      */
-    public $petAmount;
+    public $frozenAmount;
 
-    // 商城金额（明细POINT_PACKAGE/GOODS行商品金额聚合；无明细=0）
+    // 原价
     /**
-     * @example 500.00
+     * @example 300.00
      * @var string
      */
-    public $mallAmount;
-
-    // 活体可用金额（该笔PET账户行available；无行=0）
-    /**
-     * @example 795.06
-     * @var string
-     */
-    public $petAvailableAmount;
-
-    // 商城可用余额（POINT_PACKAGE/GOODS行available合计，不含冻结；无行=0）
-    /**
-     * @example 200.00
-     * @var string
-     */
-    public $mallAvailableAmount;
-
-    // 商城冻结金额（POINT_PACKAGE行frozen；无冻结=0）
-    /**
-     * @example 0.00
-     * @var string
-     */
-    public $mallFrozenAmount;
+    public $originalAmount;
 
 }
