@@ -19,6 +19,8 @@ class MaoQueryMerchantResult extends Model {
         'merchantInfo' => 'merchant_info',
         'pendingApply' => 'pending_apply',
         'onboardingTime' => 'onboarding_time',
+        'industryName' => 'industry_name',
+        'subCategoryName' => 'sub_category_name',
     ];
     public function validate() {}
     public function toMap() {
@@ -52,6 +54,12 @@ class MaoQueryMerchantResult extends Model {
         }
         if (null !== $this->onboardingTime) {
             $res['onboarding_time'] = $this->onboardingTime;
+        }
+        if (null !== $this->industryName) {
+            $res['industry_name'] = $this->industryName;
+        }
+        if (null !== $this->subCategoryName) {
+            $res['sub_category_name'] = $this->subCategoryName;
         }
         return $res;
     }
@@ -90,6 +98,12 @@ class MaoQueryMerchantResult extends Model {
         }
         if(isset($map['onboarding_time'])){
             $model->onboardingTime = $map['onboarding_time'];
+        }
+        if(isset($map['industry_name'])){
+            $model->industryName = $map['industry_name'];
+        }
+        if(isset($map['sub_category_name'])){
+            $model->subCategoryName = $map['sub_category_name'];
         }
         return $model;
     }
@@ -162,5 +176,19 @@ class MaoQueryMerchantResult extends Model {
      * @var string
      */
     public $onboardingTime;
+
+    // 行业名字
+    /**
+     * @example PET
+     * @var string
+     */
+    public $industryName;
+
+    // 二级行业名字
+    /**
+     * @example 电瓶车
+     * @var string
+     */
+    public $subCategoryName;
 
 }

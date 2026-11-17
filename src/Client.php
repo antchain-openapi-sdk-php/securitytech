@@ -192,6 +192,8 @@ use AntChain\SECURITYTECH\Models\QueryHealthDataRequest;
 use AntChain\SECURITYTECH\Models\QueryHealthDataResponse;
 use AntChain\SECURITYTECH\Models\ReportHealthDataRequest;
 use AntChain\SECURITYTECH\Models\ReportHealthDataResponse;
+use AntChain\SECURITYTECH\Models\ApplyAidashboardDeviceRequest;
+use AntChain\SECURITYTECH\Models\ApplyAidashboardDeviceResponse;
 use AntChain\SECURITYTECH\Models\CreateBssecpicRequest;
 use AntChain\SECURITYTECH\Models\CreateBssecpicResponse;
 use AntChain\SECURITYTECH\Models\CreateBlueshieldSecuritypictureRequest;
@@ -405,7 +407,7 @@ class Client {
                     "req_msg_id" => UtilClient::getNonce(),
                     "access_key" => $this->_accessKeyId,
                     "base_sdk_version" => "TeaSDK-2.0",
-                    "sdk_version" => "1.7.40",
+                    "sdk_version" => "1.7.43",
                     "_prod_code" => "SECURITYTECH",
                     "_prod_channel" => "undefined"
                 ];
@@ -2695,6 +2697,31 @@ class Client {
     public function reportHealthDataEx($request, $headers, $runtime){
         Utils::validateModel($request);
         return ReportHealthDataResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.health.data.report", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
+    }
+
+    /**
+     * Description: 申请产测资料
+     * Summary: 申请产测资料
+     * @param ApplyAidashboardDeviceRequest $request
+     * @return ApplyAidashboardDeviceResponse
+     */
+    public function applyAidashboardDevice($request){
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+        return $this->applyAidashboardDeviceEx($request, $headers, $runtime);
+    }
+
+    /**
+     * Description: 申请产测资料
+     * Summary: 申请产测资料
+     * @param ApplyAidashboardDeviceRequest $request
+     * @param string[] $headers
+     * @param RuntimeOptions $runtime
+     * @return ApplyAidashboardDeviceResponse
+     */
+    public function applyAidashboardDeviceEx($request, $headers, $runtime){
+        Utils::validateModel($request);
+        return ApplyAidashboardDeviceResponse::fromMap($this->doRequest("1.0", "antsecuritytech.gateway.aidashboard.device.apply", "HTTPS", "POST", "/gateway.do", Tea::merge($request), $headers, $runtime));
     }
 
     /**
